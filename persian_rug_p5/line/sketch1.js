@@ -1,12 +1,12 @@
 // https://stackoverflow.com/questions/26226531/persian-rug-recursion
-
-let a = 1.0;
-let n = 5;
+// Persian Rugs https://www.youtube.com/watch?v=0wfPlzPvZiQ
+//let a = 1.0;
+let n = 6;
 let sqLeft, sqTop, sqRight, sqBot;
-let r, g, b;
+//let r, g, b;
 // let firstColor;
 // let backC;
-let shift = 4;
+//let shift = [1,2,3,4,5,6,7];
 let resolution = 2;
 
 let palette = {
