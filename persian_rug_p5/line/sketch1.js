@@ -1,24 +1,36 @@
-// https://stackoverflow.com/questions/26226531/persian-rug-recursion
-// Persian Rugs https://www.youtube.com/watch?v=0wfPlzPvZiQ
-//let a = 1.0;
-let n = 6;
+// I used this implementation in java as a reference:  https://stackoverflow.com/questions/26226531/persian-rug-recursion
+// Algorithm to determine new color from https://www.youtube.com/watch?v=0wfPlzPvZiQ
+
+// https://editor.p5js.org/kfahn/sketches/eOAk3ygZB
+
+let n = 8;
 let sqLeft, sqTop, sqRight, sqBot;
-//let r, g, b;
-// let firstColor;
-// let backC;
-//let shift = [1,2,3,4,5,6,7];
 let resolution = 2;
+
+// I  am getting the color palette from https://supercolorpalette.com
+// https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFC71F-FFB41F-1F4DFF-1F60FF-1F75FF
+//https://supercolorpalette.com/?scp=G0-hsl-3A3AF8-733AF8-AC3AF8-F8F53A-C2F83A-89F83A
 
 let palette = {
   colors: {
-    0: "#2E1FFF",
-    1: "#1F22FF",
-    2: "#FF9A1F",
-    3: "#FF871F",
-    4: "#84FF1F",
-    5: "#96FF1F",
+    0: "#3A3AF8",
+    1: "#733AF8",
+    2: "#AC3AF8",
+    3: "#F8F53A",
+    4: "#C2F83A",
+    5: "#89F83A",
   },
 };
+// let palette = {
+//   colors: {
+//     0: "#FFDA1F",
+//     1: "#FFC71F",
+//     2: "#FFB41F",
+//     3: "#1F4DFF",
+//     4: "#1F60FF",
+//     5: "#1F75FF",
+//   },
+// };
 let ncol = 6; // number of colors in palette
 
 function setup() {
@@ -30,14 +42,16 @@ function setup() {
   sqRight = w;
   sqBot = w;
 
-  //createCanvas(341, 341);
-  // r = floor(random(1, 255));
-  // g = floor(random(1, 255));
-  // b = floor(random(1, 255));
   let c0 = getHexColorByKey(0, palette);
   let c1 = getHexColorByKey(1, palette);
   background(c0);
   strokeWeight(2);
+  // I am getting a slight discrepency in RGB values for (right, bot)--The red value is off by 2.
+  // I have dealt with this by adding an extra 1 pixel border
+  //   console.log(get(left, top));
+  //   console.log(get(right, top));
+  //   console.log(get(left, bot));
+  //   console.log(get(right, bot));
   stroke(c1);
 
   // Draw border
@@ -54,22 +68,8 @@ function draw() {}
 
 function chooseColor(left, right, top, bot, shift) {
   let midcol, midrow;
-  // there appears to be a bug in p5js.  It is not retrieving the correct pixel color for the right, bot
-  let c = get(left, bot);
-  console.log(get(width / 2, height / 2));
-  console.log(get(left, top));
-  console.log(get(right, top));
-  console.log(get(left, bot));
-  console.log(get(right, bot));
-  console.log(getIndexbyRGB(c));
 
-  //getIndexbyRGB(get(left, top));
-  //console.log(getIndexbyRGB(n1));
   if (left < right - 1) {
-    // col = floor(
-    //   (get(left, top) + get(right, top) + get(left, bot) + get(right, bot)) / a
-    // );
-
     newKey = floor(
       (getIndexbyRGB(get(left, top)) +
         getIndexbyRGB(get(right, top)) +
@@ -78,7 +78,7 @@ function chooseColor(left, right, top, bot, shift) {
         shift) %
         ncol
     );
-    console.log(newKey);
+    //console.log(newKey);
     let col = getHexColorByKey(newKey, palette);
     //console.log(col)
     midcol = int((left + right) / 2);
@@ -90,7 +90,7 @@ function chooseColor(left, right, top, bot, shift) {
     stroke(col);
     line(left + 1, midrow, right - 1, midrow);
     line(midcol, top + 1, midcol, bot - 1);
-    // pop();
+    pop();
 
     chooseColor(left, midcol, top, midrow, shift);
     chooseColor(midcol, right, top, midrow, shift);
