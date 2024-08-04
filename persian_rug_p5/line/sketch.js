@@ -1,25 +1,42 @@
-// https://stackoverflow.com/questions/26226531/persian-rug-recursion
-// Persian Rugs https://www.youtube.com/watch?v=0wfPlzPvZiQ
-//let a = 1.0;
+// p5.js implementation of Persian rug algorithm described in https://archive.bridgesmathart.org/2005/bridges2005-9.pdf
 
-// Render speed gets progressively slower as n increases
-// TODO:  try to improve speed
+// I used this implementation in java as a reference:  https://stackoverflow.com/questions/26226531/persian-rug-recursion
+// Algorithm to determine new color from https://www.youtube.com/watch?v=0wfPlzPvZiQ
 
-let n = 6;
+// Two Important Notes:
+// 1. n > 6 the render is a bit slow
+// Reducing n or increasing value for resolution will speed up render
+// 2. It is possible to randomly choose the same color as the border for the second color.  If this happens, the result is a square with just the original color
+
+// https://editor.p5js.org/kfahn/sketches/2KJqdr_MC
+
+let n = 8;
 let sqLeft, sqTop, sqRight, sqBot;
 let resolution = 2;
 
+// I  am getting the color palette from https://supercolorpalette.com
+
+//https://supercolorpalette.com/?scp=G0-hsl-A11FFF-8F1FFF-7C1FFF-691FFF-571FFF-441FFF-80FF1F-93FF1F-A5FF1F-B8FF1F-CBFF1F-DDFF1F
 let palette = {
   colors: {
-    0: "#2E1FFF",
-    1: "#1F22FF",
-    2: "#FF9A1F",
-    3: "#FF871F",
-    4: "#84FF1F",
-    5: "#96FF1F",
+    0: "#A11FFF",
+    1: "#8F1FFF",
+    2: "#7C1FFF",
+    3: "#691FFF",
+    4: "#571FFF",
+    5: "#441FFF",
+    6: "#80FF1F",
+    7: "#93FF1F",
+    8: "#A5FF1F",
+    9: "#B8FF1F",
+    10: "#CBFF1F",
+    11: "#DDFF1F",
   },
 };
-let ncol = 6; // number of colors in palette
+
+// ncol should be less than or equal to the number of colors in the palette
+
+let ncol = 9; // number of colors in palette
 
 function setup() {
   let rows = pow(2, n) + 1;
@@ -30,13 +47,15 @@ function setup() {
   sqRight = w;
   sqBot = w;
 
-  let c0 = getHexColorByKey(0, palette);
-  let c1 = getHexColorByKey(1, palette);
-  background(c0);
-  // I am getting a slight discrepency in RGB values for (right, bot)--The red value is off by 2.
-  // I have dealt with this by adding an extra 1 pixel border
+  let c = getHexColorByKey(0, palette);
   strokeWeight(2);
-  stroke(c1);
+  // I am getting a slight discrepency in RGB values for (right, bot)--The red value is off by 2.
+  // I have dealt with this by changing strokeWeight to 2 for the initial border.
+  //   console.log(get(left, top));
+  //   console.log(get(right, top));
+  //   console.log(get(left, bot));
+  //   console.log(get(right, bot));
+  stroke(c);
 
   // Draw border
   line(sqLeft, sqTop, sqRight, sqTop);
@@ -62,8 +81,9 @@ function chooseColor(left, right, top, bot, shift) {
         shift) %
         ncol
     );
-    console.log(newKey);
+    //console.log(newKey);
     let col = getHexColorByKey(newKey, palette);
+    //console.log(col)
     midcol = int((left + right) / 2);
     midrow = int((top + bot) / 2);
 
@@ -73,7 +93,7 @@ function chooseColor(left, right, top, bot, shift) {
     stroke(col);
     line(left + 1, midrow, right - 1, midrow);
     line(midcol, top + 1, midcol, bot - 1);
-    // pop();
+    pop();
 
     chooseColor(left, midcol, top, midrow, shift);
     chooseColor(midcol, right, top, midrow, shift);
@@ -107,10 +127,6 @@ function rgbToHex(r, g, b) {
 function componentToHex(c) {
   let hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
-}
-
-function keyPressed() {
-  setup();
 }
 
 function mousePressed() {

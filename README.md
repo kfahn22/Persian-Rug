@@ -1,8 +1,11 @@
 # Persian Rug Algorithm
 
-Implementation of the 
-Repo with persian_rug algorithm
 
+- [Recursion Coding Challenge](https://thecodingtrain.com/challenges/77-recursion)
+Implementation of the persian rug algorithm in p5.js
+
+[p5 sketch](https://editor.p5js.org/kfahn/sketches/2KJqdr_MC)
+![purple-rug](assets/rug.jpg)
 
 ## References
 
