@@ -1,9 +1,16 @@
 # Persian Rug Algorithm
 
-Implementation of the persian rug algorithm in p5.js
+In [Recursion in Nature, Mathematics and Art](https://archive.bridgesmathart.org/2005/bridges2005-9.pdf), Anne Burns discusses using the mid-point algorithm to generate patterns that resemble Persian rugs. The essential idea is to draw a border around a square, and then draw lines connecting the midpoints of the opposite border in a new color which is a function of the color in the corners of the square. This is the formula suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ), where k is an index into an array of colors. Shift is an integer to add more variation to the rug generation. We find sum of the keys and shift modulus the number of colors (ncol) to return an index into the color palette. We color the lines by the new color.
 
-[p5 sketch](https://editor.p5js.org/kfahn/sketches/2KJqdr_MC)
+$f(k_1 + k_2 + k_3 + k_f) = (k_1 + k_2 + k_3 + k_f + shift) % ncol$
+
+I am getting the color palettes from [supercolorpalette](https://supercolorpalette.com).
+
 ![purple-rug](assets/rug.jpg)
+[p5 sketch](https://editor.p5js.org/kfahn/sketches/2KJqdr_MC)
+
+![]
+[p5 sketch](https://editor.p5js.org/kfahn/sketches/65HDqIkba)
 
 ## Gallery
 
@@ -40,6 +47,6 @@ Implementation of the persian rug algorithm in p5.js
 
 - [Recursion Coding Challenge](https://thecodingtrain.com/challenges/77-recursion)
 
-- [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ)
+-
 
 - [Persian rug recursion](https://stackoverflow.com/questions/26226531/persian-rug-recursion)
