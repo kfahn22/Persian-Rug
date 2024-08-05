@@ -3,12 +3,12 @@
 // I used this implementation in java as a reference:  https://stackoverflow.com/questions/26226531/persian-rug-recursion
 
 // n > 6 the render is slow
-// Reducing n or increasing value for resolution will speed up render
+// Reducing n or resolution will speed up render
 
+//let n = 6;
 let n = 6;
-//let n = 8;
 let sqLeft, sqTop, sqRight, sqBot;
-let resolution = 2;
+let resolution = 8;
 
 function setup() {
   let rows = pow(2, n) + 1;

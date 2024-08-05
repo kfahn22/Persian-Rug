@@ -6,10 +6,10 @@ $f(k_1 + k_2 + k_3 + k_f) = (k_1 + k_2 + k_3 + k_f + shift) % ncol$
 
 I am getting the color palettes from [supercolorpalette](https://supercolorpalette.com).
 
-![purple-rug](assets/rug.jpg)
+![rug - palette](assets/rug.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/2KJqdr_MC)
 
-![]
+![rug - random colors](assets/rug-random-5.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/65HDqIkba)
 
 ## Gallery
