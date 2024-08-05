@@ -6,9 +6,9 @@
 // Reducing n or resolution will speed up render
 
 //let n = 6;
-let n = 6;
+let n = 8;
 let sqLeft, sqTop, sqRight, sqBot;
-let resolution = 8;
+let resolution = 2;
 
 function setup() {
   let rows = pow(2, n) + 1;
