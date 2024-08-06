@@ -10,7 +10,7 @@ In [Recursion in Nature, Mathematics and Art](https://archive.bridgesmathart.org
 
 <p align="center"><img src="assets/figure10.jpg" alt="Midpoint algorithm" width="800px"></p>
 
-Figure 10 from _Recursion in Nature, Mathematics and Art_\_\_\*
+Figure 10 from _Recursion in Nature, Mathematics and Art_
 
 ## Processing
 
