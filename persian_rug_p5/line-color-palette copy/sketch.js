@@ -10,52 +10,34 @@
 
 // https://editor.p5js.org/kfahn/sketches/2KJqdr_MC
 
-// I  am getting the color palette from https://supercolorpalette.com
-
-// purples
-//https://supercolorpalette.com/?scp=G0-hsl-A11FFF-8F1FFF-7C1FFF-691FFF-571FFF-441FFF-80FF1F-93FF1F-A5FF1F-B8FF1F-CBFF1F-DDFF1F
-// let palette = {
-//   colors: {
-//     0: "#A11FFF",
-//     1: "#8F1FFF",
-//     2: "#7C1FFF",
-//     3: "#691FFF",
-//     4: "#571FFF",
-//     5: "#441FFF",
-//     6: "#80FF1F",
-//     7: "#93FF1F",
-//     8: "#A5FF1F",
-//     9: "#B8FF1F",
-//     10: "#CBFF1F",
-//     11: "#DDFF1F",
-//   },
-// };
-
-// Blue-yellow palette
-// https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFC71F-FFB41F-FFA21F-FF8F1F-FF7C1F-1F44FF-1F57FF-1F69FF-1F7CFF-1F8FFF-1FA2FF
-
-let palette = {
-  colors: {
-    0: "#1F44FF",
-    1: "#1F57FF",
-    2: "#1F69FF",
-    3: "#1F7CFF",
-    4: "#1F8FFF",
-    5: "#1FA2FF",
-    6: "#FFDA1F",
-    7: "#FFC71F",
-    8: "#FFB41F",
-    9: "#FFA21F",
-    10: "#FF8F1F",
-    11: "#FF7C1F",
-  },
-};
-
 let n = 8;
 let sqLeft, sqTop, sqRight, sqBot;
 let resolution = 2;
+
+// Function from chatGPT to generate a palette array from a url
+function generatePalette(url) {
+  // Extract the relevant part of the URL
+  const urlParts = url.split("scp=")[1];
+  const colorPart = urlParts.split("-").slice(2);
+
+  // Create the palette object
+  let palette = { colors: {} };
+
+  // Populate the colors in the palette
+  colorPart.forEach((color, index) => {
+    palette.colors[index] = `#${color}`;
+  });
+
+  return palette;
+}
+
+const url =
+  "https://supercolorpalette.com/?scp=G0-hsl-D61FFF-C31FFF-B01FFF-9E1FFF-8B1FFF-781FFF-4BFF1F-5EFF1F-71FF1F-84FF1F-96FF1F-A9FF1F";
+const palette = generatePalette(url);
+//console.log(palette);
+
 // ncol is the the number of colors in the palette
-let ncol = 12;
+let ncol = 11;
 
 function setup() {
   let rows = pow(2, n) + 1;
