@@ -75,10 +75,10 @@ function getRandomColor(left, right, top, bot) {
   let c2 = get(left, bot);
   let c3 = get(right, bot);
   //console.log(c0[0], c1[0], c2[0], c3[0]);
-
+  let a = int(random(1,12));
   // Take % 360 b/c we want values to stay in range of (0,360)
   r = floor((c0[0] + c1[0] + c2[0] + c3[0]) % 360);
-
+  
   // I added a hack to exclude the case where r = 300 because it was consistently yielding a boring pattern.
   if (r != 300) {
     return r;
