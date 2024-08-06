@@ -16,27 +16,63 @@ let resolution = 2;
 
 // I  am getting the color palette from https://supercolorpalette.com
 
+// purples
 //https://supercolorpalette.com/?scp=G0-hsl-A11FFF-8F1FFF-7C1FFF-691FFF-571FFF-441FFF-80FF1F-93FF1F-A5FF1F-B8FF1F-CBFF1F-DDFF1F
+// let palette = {
+//   colors: {
+//     0: "#A11FFF",
+//     1: "#8F1FFF",
+//     2: "#7C1FFF",
+//     3: "#691FFF",
+//     4: "#571FFF",
+//     5: "#441FFF",
+//     6: "#80FF1F",
+//     7: "#93FF1F",
+//     8: "#A5FF1F",
+//     9: "#B8FF1F",
+//     10: "#CBFF1F",
+//     11: "#DDFF1F",
+//   },
+// };
+
+// Blue-yellow palette
+//https://supercolorpalette.com/?scp=G0-hsl-FFDA1F-FFC71F-FFB41F-FFA21F-FF8F1F-FF7C1F-1F44FF-1F57FF-1F69FF-1F7CFF-1F8FFF-1FA2FF
+
+// let palette = {
+//   colors: {
+//     0: "#1F44FF",
+//     1: "#1F57FF",
+//     2: "#1F69FF",
+//     3: "#1F7CFF",
+//     4: "#1F8FFF",
+//     5: "#1FA2FF",
+//     6: "#FFDA1F",
+//     7: "#FFC71F",
+//     8: "#FFB41F",
+//     9: "#FFA21F",
+//     10: "#FF8F1F",
+//     11: "#FF7C1F",
+//   },
+// };
+
+// https://supercolorpalette.com/?scp=G0-hsl-370E5D-29197B-273B96-3777AE-51B0BD-76C1B0-97C8AC-B6D2B8-D6DFD2-EEEFEB
 let palette = {
   colors: {
-    0: "#A11FFF",
-    1: "#8F1FFF",
-    2: "#7C1FFF",
-    3: "#691FFF",
-    4: "#571FFF",
-    5: "#441FFF",
-    6: "#80FF1F",
-    7: "#93FF1F",
-    8: "#A5FF1F",
-    9: "#B8FF1F",
-    10: "#CBFF1F",
-    11: "#DDFF1F",
+    0: "#370E5D",
+    1: "#29197B",
+    2: "#273B96",
+    3: "#3777AE",
+    4: "#51B0BD",
+    5: "#76C1B0",
+    6: "#97C8AC",
+    7: "#B6D2B8",
+    8: "#D6DFD2",
+    9: "#EEEFEB",
   },
 };
 
-// ncol should be less than or equal to the number of colors in the palette
-
-let ncol = 9; // number of colors in palette
+// ncol is the the number of colors in the palette
+let ncol = 8;
 
 function setup() {
   let rows = pow(2, n) + 1;
@@ -63,7 +99,7 @@ function setup() {
   line(sqLeft, sqTop, sqLeft, sqBot);
   line(sqRight, sqTop, sqRight, sqBot);
   // shift
-  let shift = int(random(1, ncol));
+  let shift = int(random(1, ncol-1));
   chooseColor(sqLeft, sqRight, sqTop, sqBot, shift);
 }
 
