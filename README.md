@@ -4,26 +4,27 @@ In [Recursion in Nature, Mathematics and Art](https://archive.bridgesmathart.org
 
 $f(k_1 + k_2 + k_3 + k_f) = (k_1 + k_2 + k_3 + k_4) / a$
 where:
-a = random(1,6) for the Processing version
-a = 360 for the P5.js sketch version
 
-<p align="center"><img src="assets/processing5.jpg" alt="Persian Rug - Processing" width="500px"></p>
+- a = random(1, 6) for the Processing version
+- a = 360 for the P5.js sketch version
 
 [processing sketch](persian_rug_processing/sketch.pde)
 
-<p align="center"><img src="assets/rug-random-2.jpg" alt="Persian Rug - P5.js random colors" width="500px"></p>
+<p align="center"><img src="assets/processing5.jpg" alt="Persian Rug - Processing" width="500px"></p>
 
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/65HDqIkba)
+
+<p align="center"><img src="assets/rug-random-2.jpg" alt="Persian Rug - P5.js random colors" width="500px"></p>
 
 In the second, the function find an index into the color palette. This method was suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ), where k is an index into an array of colors. Shift is an integer to add more variation to the rug generation. We find sum of the keys and shift, modulus the number of colors (ncol) to return an index into the color palette. We color the lines by the new color.
 
 $f(k_1 + k_2 + k_3 + k_f) = (k_1 + k_2 + k_3 + k_4 + shift)$ % ncol
 
-I am using a color palette reetrieved from [supercolorpalette](https://supercolorpalette.com).
-
-<p align="center"><img src="assets/rug.jpg" alt="Persian Rug - P5.js, color palette" width="500px"></p>
+I am using a color palette from [supercolorpalette](https://supercolorpalette.com).
 
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/2KJqdr_MC)
+
+<p align="center"><img src="assets/rug.jpg" alt="Persian Rug - P5.js, color palette" width="500px"></p>
 
 ## Gallery
 
