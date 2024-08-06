@@ -16,7 +16,9 @@ I have colored the Persian rug using two different approaches. In the first, the
 
 ## Processing
 
-Since the Processing sketch renders the fastest, I will discuss it first. I am using an adapted version of a method I found on [stackoverflow](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I added HSB colorMode and I am taking the sum of the color values retrieved by the [get()](https://processing.org/reference/get_.html) function in the 4 corners and dividing by a = random(1, n). Different values of n yield different images, but I there is a limit to how high n can get. In general, this approach yields good patterns, but it can also yield a relatively boring pattern. I have not completely flushed out the circumstances under which this occurs. I will also note that while the images are quite lovely, they do not (at least in my opinion) look exactly like Persian rugs.
+### Random Colors
+
+I am using an adapted version of a method I found on [stackoverflow](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I added HSB colorMode and I am taking the sum of the color values retrieved by the [get()](https://processing.org/reference/get_.html) function in the 4 corners and dividing by a = random(1, n). Different values of n yield different images, but I there is a limit to how high n can get. In general, this approach yields good patterns, but it can also yield a relatively boring pattern. I have not completely flushed out the circumstances under which this occurs. I will also note that while the images are quite lovely, they do not (at least in my opinion) look exactly like Persian rugs.
 
 $f(x_1 + x_2 + x_3 + x_4) = (c_1 + c_2 + c_3 + c_4) / a$
 
@@ -24,9 +26,9 @@ $f(x_1 + x_2 + x_3 + x_4) = (c_1 + c_2 + c_3 + c_4) / a$
 
 <p align="center"><img src="assets/processing5.jpg" alt="Persian Rug - Processing" width="500px"></p>
 
-- Color Palette
+### Color Palette
 
-In this version, I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we first retrieve the color of the four corners using the get() function and then find the index, $i_i$, associated with that color. We then calculate then next index using the following formula, where shift is an integer to add more variation to the rug generation.
+In this version, I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we first retrieve the color, $c_i$, of the four corners using the get() function and then find the index, $i_i$, associated with that color. We then calculate then new index using the following formula, where shift is an integer to add more variation to the rug generation.
 
 $f(x_1 + x_2 + x_3 + x_4) = (i_1 + i_2+ i_3 + i_4$ + shift) % palette.length
 
@@ -38,7 +40,7 @@ I initially had difficulty retrieving a valid index into the color array. After 
 
 ## P5.js
 
-In the P5.js sketch, I am summing just the r values of the four corners retrieved by the [get()](https://p5js.org/reference/p5/get/) function, $c_i$, but I am dividing by 360. Through trial and error, I have discovered that if the resulting value is 300, the pattern isn't very good and I have therefore eliminited this as an option. As you would expect, the P5.js sketch is **siginificantly** slower to render. I have tried various strategies to increase the rendering speed, including adding a buffer and creating a PersianRug class. None of these approaches made much of a difference. I also experimented with retrieving the colors using the pixel() function as the P5.js documentation claims that it will be faster, but that change did not seem to speed up the render. I also want to note that while I might be mistaken about this, there appears to be a bug in P5.js when retrieving the last pixel in the canvas: console.logs revealed that the r value was off by 2. This slight discrepency was enough to cause the algorithm to fail (in the palette approach), so I added a 2 pixel wide border and am retrieving the border of the rect(1,1,w,w), with a (w+1)x(w+1) canvas.
+In the P5.js sketch, I am summing just the r values of the four corners retrieved by the [get()](https://p5js.org/reference/p5/get/) function, $c_i$, but I am dividing by 360. Through trial and error, I have discovered that if the resulting value is 300, the pattern isn't very good and I have therefore eliminated this as an option. As you would expect, the P5.js sketch is **siginificantly** slower to render. I have tried various strategies to increase the rendering speed, including adding a buffer and creating a PersianRug class. None of these approaches made much of a difference. I also experimented with retrieving the colors using the pixel() function as the P5.js documentation claims that it will be faster, but that change did not seem to speed up the render. I also want to note that while I might be mistaken about this, there appears to be a bug in P5.js when retrieving the last pixel in the canvas: console.logs revealed that the r value was off by 2. This slight discrepency was enough to cause the algorithm to fail (in the palette approach), so I added a 2 pixel wide border and am retrieving the border of the rect(1,1,w,w), with a (w+1)x(w+1) canvas.
 
 $f(x_1 + x_2 + x_3 + x_4) = (c_1[0] + c_2[0]+ c_3[0] + c_4[0]) / 360$
 
@@ -68,6 +70,14 @@ I am using a very handy resource [supercolorpalette](https://supercolorpalette.c
       <td align="center"><a href=""> <img class="img" src="assets/processing4.jpg" alt="Rug with color palette, n = 8" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/processing12.jpg" alt="Rug with color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/processing9.jpg" alt="Rug with color palette" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
+</tr>
+ <tr>
+      <td align="center"><a href=""> <img class="img" src="assets/processing-url.jpg" alt="Rug with random colors" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/processing-palette.jpg" alt="Rug with random colors, n = 8" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/processing-url3.jpg" alt="Rug with random colors" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
+     <td align="center"><a href=""> <img class="img" src="assets/processing_url4.jpg" alt="Rug with random colors" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
 </tr>
