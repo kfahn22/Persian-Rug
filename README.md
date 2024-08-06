@@ -4,7 +4,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Recursion):
 
 > "Recursion is the process a procedure goes through when one of the steps of the procedure involves invoking the procedure itself."
 
-To learn more about recusion, I highly recommend Daniel Shiffman's The Nature of Code book or watching his [Recursion Coding Challenge](https://thecodingtrain.com/challenges/77-recursion).
+To learn more about recusion, I highly recommend Daniel Shiffman's newly updated [The Nature of Code](https://natureofcode.com) book or his [Recursion Coding Challenge](https://thecodingtrain.com/challenges/77-recursion).
 
 In [Recursion in Nature, Mathematics and Art](https://archive.bridgesmathart.org/2005/bridges2005-9.pdf), Anne Burns discusses using the mid-point algorithm to generate patterns that resemble Persian rugs. The essential idea is to draw a border around a square, and then draw lines connecting the midpoints of the opposite border in a new color which is a function of the colors, $x_i$, in the four corners of the square. This process was illustrated in Figure 10 of the paper.
 
