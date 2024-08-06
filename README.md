@@ -32,7 +32,7 @@ $f(x_1 + x_2 + x_3 + x_4) = (i_1 + i_2+ i_3 + i_4$ + shift) % palette.length
 
 I initially had difficulty retrieving a valid index into the color array. After trouble-shooting, I determined that the get() function is not returning the exact r, g, b values. I have dealt with this by comparing the absolute value of the difference between the r, g, and b values of $c_i$ and the palette colors.
 
-[processing sketch](processing _palette_from_url/sketch.pde)
+[processing sketch](processing_palette_from_url/sketch.pde)
 
 <p align="center"><img src="assets/processing-url-1.jpg" alt="Persian Rug - Processing" width="500px"></p>
 
