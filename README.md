@@ -77,7 +77,7 @@ I am using a very handy resource [supercolorpalette](https://supercolorpalette.c
       <td align="center"><a href=""> <img class="img" src="assets/processing-url.jpg" alt="Rug with from color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/processing-palette.jpg" alt="Rug with from color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
       <td align="center"><a href=""> <img class="img" src="assets/processing-url3.jpg" alt="Rug with from color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
-     <td align="center"><a href=""> <img class="img" src="assets/processing-palette2.jpg" alt="Rug with from color palette" style=" display: block;
+     <td align="center"><a href=""> <img class="img" src="assets/processing_url5.jpg" alt="Rug with from color palette" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="600" /><br /><sub><b><br/>Persian rug created with Processing</b></sub></a></td>
 </tr>
