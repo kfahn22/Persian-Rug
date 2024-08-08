@@ -8,45 +8,35 @@
 // Reducing n or increasing value for resolution will speed up render
 // 2. It is possible to randomly choose the same color as the border for the second color.  If this happens, the result is a square with just the original color
 
-let n = 5;
+// https://editor.p5js.org/kfahn/sketches/2KJqdr_MC
+
+let n = 8;
 let sqLeft, sqTop, sqRight, sqBot;
 let resolution = 2;
 
-// I am getting the palette from supercoloraplette in HEX form and then converting to RGB
-let  url = "https://supercolorpalette.com/?scp=G0-hsl-B67702-B66802-B65902-B64A02-02A0B6-02AFB6-02B6AE-02B69F-1302B6-0402B6-020FB6";
-let palette = [];
+// Function from chatGPT to generate a palette array from a url
+function generatePalette(url) {
+  // Extract the relevant part of the URL
+  const urlParts = url.split("scp=")[1];
+  const colorPart = urlParts.split("-").slice(2);
 
-function extractHexCodes(url) {
-  let startIndex = url.indexOf("=");
-  let hexPart = url.substring(startIndex + 1);
-  let parts = split(hexPart, '-');
+  // Create the palette object
+  let palette = { colors: {} };
 
-  // Filter out parts that are not valid hex codes
-  let hexCodes = [];
-  for (let part of parts) {
-    if (part.matches("[0-9A-Fa-f]{6}")) {
-      hexCodes.push(part);
-    }
-  }
-  return hexCodes;
-  //return hexCodes.toArray(new String[hexCodes.size()]);
+  // Populate the colors in the palette
+  colorPart.forEach((color, index) => {
+    palette.colors[index] = `#${color}`;
+  });
+
+  return palette;
 }
 
-function hexToColor(hex) {
-  let r = unhex(hex.substring(0, 2));
-  let g = unhex(hex.substring(2, 4));
-  let b = unhex(hex.substring(4, 6));
-  return color(r, g, b);
-}
+const url =
+  "https://supercolorpalette.com/?scp=G0-hsl-D61FFF-C31FFF-B01FFF-9E1FFF-8B1FFF-781FFF-4BFF1F-5EFF1F-71FF1F-84FF1F-96FF1F-A9FF1F";
+const palette = generatePalette(url);
+//console.log(palette);
 
-function generatePaletteArray(url) {
-  let hexCodes = extractHexCodes(url);
-  palette = new color[hexCodes.length];
 
-  for (let i = 0; i < hexCodes.length; i++) {
-    palette[i] = hexToColor(hexCodes[i]);
-  }
-}
 
 // ncol is the the number of colors in the palette
 let ncol = 11;

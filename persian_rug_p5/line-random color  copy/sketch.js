@@ -6,13 +6,17 @@
 // Reducing n or resolution will speed up render
 
 //let n = 6;
-let n = 8;
+let n = 3;
 let sqLeft, sqTop, sqRight, sqBot;
-//let size = 10;
+let size = 16;
+let iterations  = 0;
+let w, rows;
 
 function setup() {
-  let w = pow(2, n) + 1;
-
+  rows = pow(2, n) + 1;
+  w = rows*size;
+ // let rows = ((w-1)/size) + 1;
+  console.log(rows)
   createCanvas(w + 1, w + 1);
   colorMode(HSB);
   sqLeft = 1;
@@ -22,20 +26,20 @@ function setup() {
 
   let r = floor(random(1, 360));
   //stroke(r);
-  strokeWeight(2);
-  // I am getting a slight discrepency in RGB values for (right, bot)--The red value is off by 2.
-  // I have dealt with this by changing strokeWeight to 2 for the initial border.
-  //   console.log(get(left, top));
-  //   console.log(get(right, top));
-  //   console.log(get(left, bot));
-  //   console.log(get(right, bot));
-  stroke(r, 255, 255, 255);
+  // strokeWeight(2);
+  noStroke();
+  fill(r, 255, 255, 255);
 
   // Draw border
-  line(sqLeft, sqTop, sqRight, sqTop);
-  line(sqLeft, sqBot, sqRight, sqBot);
-  line(sqLeft, sqTop, sqLeft, sqBot);
-  line(sqRight, sqTop, sqRight, sqBot);
+  rect(size, 0, w - iterations * size, size);
+  rect(w - size, 0, size, w);
+  rect(0, 0, size, w);
+  rect(size, w - size, w - iterations * size, size);
+  // // Draw border
+  // line(sqLeft, sqTop, sqRight, sqTop);
+  // line(sqLeft, sqBot, sqRight, sqBot);
+  // line(sqLeft, sqTop, sqLeft, sqBot);
+  // line(sqRight, sqTop, sqRight, sqBot);
   // shift
   // let shift = int(random(1, ncol));
   chooseColor(sqLeft, sqRight, sqTop, sqBot);
@@ -45,23 +49,28 @@ function draw() {}
 
 function chooseColor(left, right, top, bot) {
   let midcol, midrow;
+  
   if (left < right - 1) {
     midcol = int((left + right) / 2);
     midrow = int((top + bot) / 2);
 
     // Add lines in middle row and column
     push();
-    strokeWeight(1);
+    //strokeWeight(1);
     let r = getRandomColor(left, right, top, bot);
-    stroke(r, 255, 255, 255);
-    line(left + 1, midrow, right - 1, midrow);
-    line(midcol, top + 1, midcol, bot - 1);
+    fill(r, 255, 255, 255);
+    rect(midrow - 0.5 * size, size, size, (rows - 2) * size);
+    rect(size, midcol - 0.5 * size, (rows-1) * size, size);
+    
+    // line(left + 1, midrow, right - 1, midrow);
+    // line(midcol, top + 1, midcol, bot - 1);
     pop();
-
-    chooseColor(left, midcol, top, midrow);
-    chooseColor(midcol, right, top, midrow);
-    chooseColor(left, midcol, midrow, bot);
-    chooseColor(midcol, right, midrow, bot);
+    
+      rows = floor(rows/2);
+      chooseColor(left, midcol, top, midrow);
+    // chooseColor(midcol, right, top, midrow);
+    // chooseColor(left, midcol, midrow, bot);
+    // chooseColor(midcol, right, midrow, bot);
   }
 }
 
