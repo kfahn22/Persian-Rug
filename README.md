@@ -16,7 +16,7 @@ The sketch is an adapted version of this [code](https://stackoverflow.com/questi
 
 $f(x_1 + x_2 + x_3 + x_4) = (i_1 + i_2+ i_3 + i_4$ + shift) % palette.length
 
-I initially had difficulty retrieving a valid index into the color array. After trouble-shooting, I determined that the get() function does not appear to be returning the exact r, g, b values. I have dealt with this by comparing the absolute value of the difference between the r, g, and b values of $c_i$ and the palette colors.
+I initially had difficulty retrieving a valid index into the color array. After trouble-shooting, I determined that the get() function does not appear to be returning the exact r, g, b values. I have dealt with this by comparing the absolute value of the difference between the r, g, and b values of $c_i$ and the palette colors. I have found that the best images are created from a palette with a large number of colors. Luckily, I found a really nice [website](https://supercolorpalette.com) where you can obtain palettes with 12 and more different colors.
 
 ## Gallery
 
@@ -26,16 +26,16 @@ I initially had difficulty retrieving a valid index into the color array. After 
 <table>
   <tbody>
       <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/pink-purple1.jpg" alt="Rug with color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug from color palette</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/pink-purple1.jpg" alt="Rug with color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/></b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/teal_red.jpg" alt="Rug with color palette" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="600" /><br /><sub><b><br/>Persian rug from color palette</b></sub></a></td>
+    margin-right: auto;" width="600" /><br /><sub><b><br/></b></sub></a></td>
 </tr>
   <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/raspberry2.jpg" alt="Rug with color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug from color palette</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/raspberry2.jpg" alt="Rug with color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/></b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/purple_green.jpg" alt="Rug with color palette" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="600" /><br /><sub><b><br/>Persian rug from color palette</b></sub></a></td>
+    margin-right: auto;" width="600" /><br /><sub><b><br/></b></sub></a></td>
 </tr>
 
  </tbody>
