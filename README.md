@@ -12,15 +12,11 @@ In [Recursion in Nature, Mathematics and Art](https://archive.bridgesmathart.org
 
 Figure 10 from _Recursion in Nature, Mathematics and Art_
 
-I have colored the Persian rug using two different approaches. In the first, the first color is choosen randomly while in the second, the colors are choosen from a color palette. 
-
-I am using an adapted version of a method I found on [stackoverflow](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we first retrieve the color, $c_i$, of the four corners using the get() function and then find the index, $i_i$, associated with that color. We then calculate then new index using the following formula, where shift is an integer to add more variation to the rug generation.
+I am using an adapted sketch of a method I found on [stackoverflow](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we first retrieve the color, $c_i$, of the four corners using the get() function and then find the index, $i_i$, associated with that color. We then calculate then new index using the following formula, where shift is an integer to add more variation to the rug generation.
 
 $f(x_1 + x_2 + x_3 + x_4) = (i_1 + i_2+ i_3 + i_4$ + shift) % palette.length
 
-I initially had difficulty retrieving a valid index into the color array. After trouble-shooting, I determined that the get() function is not returning the exact r, g, b values. I have dealt with this by comparing the absolute value of the difference between the r, g, and b values of $c_i$ and the palette colors.
-
-[processing sketch](processing_palette_from_url/sketch.pde)
+I initially had difficulty retrieving a valid index into the color array. After trouble-shooting, I determined that the get() function does not appear to be returning the exact r, g, b values. I have dealt with this by comparing the absolute value of the difference between the r, g, and b values of $c_i$ and the palette colors.
 
 ## Gallery
 
