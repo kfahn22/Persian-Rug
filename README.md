@@ -1,4 +1,4 @@
-# Persian Rug using Recusion
+# Persian Rug using Recursion using Processing
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Recursion):
 
@@ -30,7 +30,7 @@ I initially had difficulty retrieving a valid index into the color array. After 
 <table>
   <tbody>
       <tr>
-      <td align="center"><a href=""> <img class="img" src="assets/pink-purple1.jpg.jpg" alt="Rug with color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug from color palette</b></sub></a></td>
+      <td align="center"><a href=""> <img class="img" src="assets/pink-purple1.jpg" alt="Rug with color palette" style="vertical-align:top;" width="600" /><br /><sub><b><br/>Persian rug from color palette</b></sub></a></td>
      <td align="center"><a href=""> <img class="img" src="assets/teal_red.jpg" alt="Rug with color palette" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="600" /><br /><sub><b><br/>Persian rug from color palette</b></sub></a></td>
