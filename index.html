@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing pde:// Protocol Demo Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 250px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .shield-button {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border: 2px solid #cccccc;
+            border-radius: 50px;
+            padding: 8px 20px 8px 15px; /* top right bottom left */
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .shield-button:hover {
+            border-color: #a9a9a9;
+            background-color: #f2f2f2;
+        }
+
+        .shield-button:active {
+            border-color: #a9a9a9;
+            background-color: #e0e0e0;
+        }
+
+        .logo-container {
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .logo {
+            width: 30px;
+            height: 30px;
+        }
+
+        .text-container {
+            color: #333333;
+        }
+
+        .text {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #6f6f6f;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: #555;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 8px 10px 10px 25px; /* top right bottom left */
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the button */
+            left: 50%;
+            margin-left: -125px; /* Center the tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* link in tooltip: no underline, light blue, no clicked color */
+        .tooltip .tooltiptext a {
+            text-decoration: none;
+            color: #8ec8f7; 
+        }
+
+        .tooltip.show .tooltiptext {;
+            visibility: visible;
+            opacity: 1;
+        }
+        @keyframes ellipsis {
+            0%  { content: " .  "; }
+            33% { content: " .. "; }
+            66% { content: " ..."; }
+        }
+
+        .ellipsis::after {
+            content: "";
+            display: inline-block;
+            animation: ellipsis 1.2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tooltip" id="tooltip">
+        <a href="#" class="shield-button" id="openInProcessing">
+            <div class="logo-container">
+                <img src="assets/coding-train.jpg" alt="Persian rug" class="logo">
+            </div>
+            <div class="text-container">
+                Open in Processing
+            </div>
+        </a>
+        <div class="tooltiptext">
+            <p><span class="ellipsis">Opening in Processing</span></p>
+            <p>If nothing happens, <a href="https://processing.org/download/" target="_blank">download Processing</a> and try again.</p>
+        </div>
+    </div>
+        <p class="text">
+            Assuming you have Processing installed on your computer, you can open the Persian Rug sketch directly from the browser.
+        </p>
+    </div>
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        const openInProcessing = document.getElementById('openInProcessing');
+        
+        openInProcessing.addEventListener('click', function (event) {
+            event.preventDefault();
+            tooltip.classList.add('show');
+            window.location.href = 'pde://kfahn22.github.io/Persian-Rug/sketch.pdez';
+        });
+
+        // Remove tooltip when clicking anywhere outside the button
+        document.addEventListener('click', function (event) {
+            if (!tooltip.contains(event.target) && tooltip.classList.contains('show')) {
+                tooltip.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
