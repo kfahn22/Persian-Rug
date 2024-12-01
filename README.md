@@ -1,4 +1,4 @@
-# Persian Rug using Recursion (in Processing)
+# Persian Rug using Recursion
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Recursion):
 
@@ -12,11 +12,40 @@ In [Recursion in Nature, Mathematics and Art](https://archive.bridgesmathart.org
 
 Figure 10 from _Recursion in Nature, Mathematics and Art_
 
-The sketch is an adapted version of this [code](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we first retrieve the color, $c_i$, of the four corners using the get() function and then find the index, $i_i$, associated with that color. We then calculate then new index using the following formula, where shift is an integer to add more variation to the rug generation.
+The sketch is an adapted version of this [code](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we select colors from a palette based on the index. We first initialize an empty array to hold the indexes. 
+
+```JavaScript
+ colorIndexArray = Array(canvasSize)
+    .fill()
+    .map(() => Array(canvasSize).fill(0));
+```
+
+ We draw a border using palette[0].  We then retrieve the palette index from the colorIndexArry and calculate then new index using the following formula, where shift is an integer to add more variation to the rug generation.
 
 $f(x_1 + x_2 + x_3 + x_4) = (i_1 + i_2+ i_3 + i_4$ + shift) % palette.length
 
-I initially had difficulty retrieving a valid index into the color array. After trouble-shooting, I determined that the get() function does not appear to be returning the exact r, g, b values. I have dealt with this by comparing the absolute value of the difference between the r, g, and b values of $c_i$ and the palette colors. I have found that the best images are created from a palette with a large number of colors. Luckily, I found a really nice [website](https://supercolorpalette.com) where you can obtain palettes with 12 and more different colors.
+We use the newIndex to pick the color from the palette for the new middle lines.
+
+```JavaScript
+let col = palette[newIndex];
+let midCol = floor((left + right) / 2);
+let midRow = floor((top + bottom) / 2);
+
+// Draw middle lines
+stroke(col);
+line(left + 1, midRow, right - 1, midRow); // Horizontal
+line(midCol, top + 1, midCol, bottom - 1); // Vertical
+```
+
+We also pass the newIndex to the colorIndexArray and continue this process recursively.
+
+```JavaScript
+  colorIndexArray[midCol][midRow] = newIndex; 
+```
+
+I have found that the best images are created from a palette with a large number of colors. Luckily, I found a really nice [website](https://supercolorpalette.com) where you can obtain palettes with 12 and more different colors.
+
+You can play with the p5 sketch [here](https://editor.p5js.org/kfahn/sketches/sL1BsexS-). Assuming you have Processing downloaded, you can open the Processing sketch by downloading from [here](Processing-palette/sketch.pdez).
 
 ## Gallery
 
