@@ -45,7 +45,7 @@ We also pass the newIndex to the colorIndexArray and continue this process recur
 
 I have found that the best images are created from a palette with a large number of colors. Luckily, I found a really nice [website](https://supercolorpalette.com) where you can obtain palettes with 12 and more different colors.
 
-You can play with the p5 sketch [here](https://editor.p5js.org/kfahn/sketches/sL1BsexS-). Assuming you have Processing downloaded, you can open the Processing sketch by downloading from [here](Processing/sketch.pdez).
+You can play with the p5 sketch [here](https://editor.p5js.org/kfahn/sketches/sL1BsexS-). Assuming you have Processing downloaded, you can open the Processing sketch by downloading from [here](Processing-palette/sketch.pdez).
 
 ## Gallery
 
