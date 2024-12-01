@@ -1,4 +1,4 @@
-# Persian Rug using Recursion (in Processing)
+# Persian Rug using Recursion
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Recursion):
 
