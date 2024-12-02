@@ -13,6 +13,7 @@
 // I am using the method for choosing colors from Dr. Eric Gossett https://www.youtube.com/watch?v=0wfPlzPvZiQ1
 
 let n = 10;
+let sw = 2;
 let palette = [];
 let colorIndexArray = [];
 
@@ -42,7 +43,7 @@ function setup() {
 
 function drawBorder(left, top, right, bottom, hueVal) {
   stroke(hueVal, 100, 100);
-
+  strokeWeight(sw);
   line(left, top, right, top); // Top
   line(left, bottom, right, bottom); // Bottom
   line(left, top, left, bottom); // Left
@@ -64,6 +65,7 @@ function chooseColor(left, right, top, bottom, shift) {
 
     // Draw middle lines
     stroke(newHue, 100, 100);
+    strokeWeight(sw);
     line(left + 1, midRow, right - 1, midRow); // Horizontal
     line(midCol, top + 1, midCol, bottom - 1); // Vertical
 
