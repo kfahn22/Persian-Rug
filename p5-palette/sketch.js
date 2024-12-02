@@ -1,4 +1,5 @@
 let n = 10; // Grid size: 257 x 257
+let sw = 2;
 let palette = [];
 let colorIndexArray = [];
 // let url =
@@ -54,7 +55,7 @@ function setup() {
 function drawBorder(left, top, right, bottom, colorIndex) {
   let c = palette[colorIndex];
   stroke(c);
-
+  strokeWeight(sw);
   line(left, top, right, top); // Top
   line(left, bottom, right, bottom); // Bottom
   line(left, top, left, bottom); // Left
@@ -77,6 +78,7 @@ function chooseColor(left, right, top, bottom, shift) {
 
     // Draw middle lines
     stroke(col);
+    strokeWeight(sw);
     line(left + 1, midRow, right - 1, midRow); // Horizontal
     line(midCol, top + 1, midCol, bottom - 1); // Vertical
 
