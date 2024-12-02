@@ -42,11 +42,11 @@ function setup() {
 
   // Draw border
   let w = canvasSize - 1;
-  drawBorder(1, 1, w, w, 0);
+  drawBorder(0, 0, w, w, 0);
 
   // Choose colors for the internal grid
   let shift = floor(random(1, palette.length));
-  chooseColor(1, w, 1, w, shift);
+  chooseColor(0, w, 0, w, shift);
 
   // Save the result
   // saveCanvas("persian_rug", "jpg");
