@@ -12,7 +12,7 @@ In [Recursion in Nature, Mathematics and Art](https://archive.bridgesmathart.org
 
 Figure 10 from _Recursion in Nature, Mathematics and Art_
 
-The sketch is an adapted version of this [code](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we select colors from a palette based on the index. We first initialize an empty array to hold the indexes. 
+The sketch is an adapted version of this [code](https://stackoverflow.com/questions/26226531/persian-rug-recursion). I have used a method suggested by Dr. Eric Gossett in [Persian Rugs](https://www.youtube.com/watch?v=0wfPlzPvZiQ) to compute the next color. In this approach, we select colors from a palette based on the index. We first initialize an empty array to hold the indexes.
 
 ```JavaScript
  colorIndexArray = Array(canvasSize)
@@ -20,7 +20,7 @@ The sketch is an adapted version of this [code](https://stackoverflow.com/questi
     .map(() => Array(canvasSize).fill(0));
 ```
 
- We draw a border using palette[0].  We then retrieve the palette index from the colorIndexArry and calculate then new index using the following formula, where shift is an integer to add more variation to the rug generation.
+We draw a border using palette[0]. We then retrieve the palette index from the colorIndexArry and calculate then new index using the following formula, where shift is an integer to add more variation to the rug generation.
 
 $f(x_1 + x_2 + x_3 + x_4) = (i_1 + i_2+ i_3 + i_4$ + shift) % palette.length
 
@@ -40,12 +40,12 @@ line(midCol, top + 1, midCol, bottom - 1); // Vertical
 We also pass the newIndex to the colorIndexArray and continue this process recursively.
 
 ```JavaScript
-  colorIndexArray[midCol][midRow] = newIndex; 
+  colorIndexArray[midCol][midRow] = newIndex;
 ```
 
 I have found that the best images are created from a palette with a large number of colors. Luckily, I found a really nice [website](https://supercolorpalette.com) where you can obtain palettes with 12 and more different colors.
 
-You can play with the p5 sketch [here](https://editor.p5js.org/kfahn/sketches/sL1BsexS-). Assuming you have Processing downloaded, you can open the Processing sketch by downloading from [here](Processing-palette/sketch.pdez).
+You can play with the p5 sketch [here](https://editor.p5js.org/kfahn/sketches/sL1BsexS-). I also have a version that chooses colors randomly [here](https://editor.p5js.org/kfahn/sketches/RShw897BV). Assuming you have Processing downloaded, you can open the Processing sketch by downloading from [here](Processing-palette/sketch.pdez).
 
 ## Gallery
 
